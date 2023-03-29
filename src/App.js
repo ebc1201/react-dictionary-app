@@ -13,7 +13,8 @@ export default function App() {
           <Search />
         </main>
         <footer className='App-footer'>
-          This project was coded by <a href='#'>Erica Chambers</a> and is{' '}
+          This project was coded by{' '}
+          <a href='https://github.com/ebc1201'>Erica Chambers</a> and is{' '}
           <a href='https://github.com/ebc1201/react-dictionary-app'>
             open-sourced on GitHub
           </a>
