@@ -11,7 +11,7 @@ export default function App() {
           <h1>Dictionary</h1>
         </header>
         <main>
-          <Search />
+          <Search defaultKeyword='sunset' />
         </main>
         <footer className='App-footer'>
           This project was coded by{' '}
