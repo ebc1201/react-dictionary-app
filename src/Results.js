@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Meaning from './Meaning';
 import './Results.css';
-import Photos from './Photos';
 
 export default function Results(props) {
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -21,7 +20,6 @@ export default function Results(props) {
             <strong className='word'>{props.results.word}</strong>
             <br />
           </h2>
-
           <button className='sound' onClick={speak} disabled={isSpeaking}>
             <i className='fa-solid fa-volume-high' />
             {''}
