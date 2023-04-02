@@ -8,31 +8,26 @@ export default function Search(props) {
   let [keyword, setKeyword] = useState(props.defaultKeyword);
   let [results, setResults] = useState(null);
   let [loaded, setLoaded] = useState(false);
-  let [photos, setPhotos] = useState(null);
+  let [photos, setPhotos] = useState([]);
+
+  function handleImagesResponse(response) {
+    setPhotos(response.data.photos);
+  }
 
   function handleDictionaryResponse(response) {
     setResults(response.data);
-  }
+    const apiKey = '5ae36e7a40754bfb55o3c43890a696t8';
+    const imagesApiUrl = `https://api.shecodes.io/images/v1/search?query=${response.data.word}&key=${apiKey}`;
 
-  function handlePexelsResponse(response) {
-    console.log(response);
-    setPhotos(response.photos);
+    axios
+      .get(imagesApiUrl, { headers: { Authorization: `Bearer ${apiKey}` } })
+      .then(handleImagesResponse);
   }
 
   function search() {
     const apiKey = '5ae36e7a40754bfb55o3c43890a696t8';
     const apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${keyword}&key=${apiKey}`;
     axios.get(apiUrl).then(handleDictionaryResponse);
-
-    const pexelsApiKey =
-      '6WmmYHE3bRvf1gj5HWSlCLTIcS4WYDaAQ8zIhzFXc26xTNJRZ21oA4Zt';
-    const pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=1`;
-    const headers = { Authorization: `${pexelsApiKey}` };
-    axios
-      .get(pexelsApiUrl, {
-        headers: headers,
-      })
-      .then(handlePexelsResponse);
   }
 
   function handleSubmit(event) {
@@ -65,8 +60,8 @@ export default function Search(props) {
             <div className='hint'>ex: sunset, yoga, bombastic</div>
           </section>
         </center>
-        <Results results={results} />
         <Photos photos={photos} />
+        <Results results={results} />
       </div>
     );
   } else {
