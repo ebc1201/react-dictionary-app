@@ -35,13 +35,18 @@ export default function Search(props) {
     return (
       <div className='Search'>
         <center>
-          <form onSubmit={handleSubmit}>
-            <input
-              type='search'
-              autoFocus={true}
-              onChange={handleKeywordChange}
-            />
-          </form>
+          <section>
+            <h1>What word do you want to look up?</h1>
+            <form onSubmit={handleSubmit}>
+              <input
+                type='search'
+                autoFocus={true}
+                onChange={handleKeywordChange}
+                placeholder='Search for a word'
+              />
+            </form>
+            <div className='hint'>ex: sunset, yoga, bombastic</div>
+          </section>
         </center>
         <Results results={results} />
       </div>

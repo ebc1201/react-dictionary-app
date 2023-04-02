@@ -2,6 +2,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+.container {
+  max-width: 900px;
+}
+
 .App-header {
   margin: 30px 0;
   text-align: center;

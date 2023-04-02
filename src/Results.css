@@ -1,0 +1,22 @@
+.Results h2 {
+  font-size: 36px;
+}
+
+.Results .sound {
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  color: #9c8ec8;
+  background-color: #f9f8fe;
+  justify-content: left;
+}
+
+.Results .phonetics {
+  font-size: 22px;
+  padding-left: 10px;
+  color: #9c8ec8;
+  opacity: 0.8;
+}
